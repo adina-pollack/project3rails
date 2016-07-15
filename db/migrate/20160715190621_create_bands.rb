@@ -4,7 +4,7 @@ class CreateBands < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :genre
       t.string :photo_url
-      t.references :lineup
+      t.references :concerts
       t.timestamps
     end
   end

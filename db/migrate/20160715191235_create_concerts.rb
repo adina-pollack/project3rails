@@ -4,7 +4,7 @@ class CreateConcerts < ActiveRecord::Migration[5.0]
       t.string :date
       t.string :time
       t.string :ticket_sale_date
-      t.references :lineup
+      t.refereces :venues
       t.timestamps
     end
   end
