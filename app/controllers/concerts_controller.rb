@@ -5,6 +5,7 @@ class ConcertsController < ApplicationController
     else
       @location = Location.new("New York City")
     end
+  end
   def index
     @concerts = Concert.all
   end
