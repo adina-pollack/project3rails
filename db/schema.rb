@@ -26,14 +26,16 @@ ActiveRecord::Schema.define(version: 20160715191235) do
   end
 
   create_table "concerts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "date"
+    t.string   "title"
     t.string   "datetime"
     t.string   "ticket_status"
+    t.string   "on_sale_datetime"
     t.string   "venue_name"
     t.string   "venue_city"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "artists"
+    t.string   "city"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
