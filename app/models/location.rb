@@ -3,7 +3,8 @@ class Location
 
   def initialize (city)
     @city = city
-    url = "http://api.bandsintown.com/events/search.json?location=#{city.gsub(/\s/, "_")}&page=1&app_id=#{ENV["pusher_app_id"]}"
+    city = city.split(' ').join('%20')
+    url = "http://api.bandsintown.com/events/search.json?location=#{city}&page=1&app_id=#{ENV["pusher_app_id"]}"
     response = HTTParty.get(url)
     @id = response[id.to_i]
   end
