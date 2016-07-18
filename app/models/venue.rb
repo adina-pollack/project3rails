@@ -1,3 +1,3 @@
 class Venue < ApplicationRecord
-  belongs_to :concert
+  has_many :concerts
 end
