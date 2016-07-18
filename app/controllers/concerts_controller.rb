@@ -1,13 +1,13 @@
 class ConcertsController < ApplicationController
+  def index
+    @concerts = Concert.all
+  end
   def get_events
     if params[:city]
       @location = Location.new(params[:city])
     else
       @location = Location.new("New York City")
     end
-  end
-  def index
-    @concerts = Concert.all
   end
   def show
     @concert = Concert.find(params[:id])
