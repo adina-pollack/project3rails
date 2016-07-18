@@ -1,0 +1,4 @@
+<h2><%= @concert.name %></h2>
+<p><%= @concert.datetime %></p>
+<p><%= @concert.ticket_status %></p>
+<h3><%= link_to "EDIT", edit_venue_concert_path(@concert.venue, @concert) %></h3>
