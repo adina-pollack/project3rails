@@ -1,4 +1,4 @@
-class Location
+class Location 
   attr_reader :city, :id
 
   def initialize (city)

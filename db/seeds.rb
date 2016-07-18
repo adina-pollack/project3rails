@@ -1,10 +1,6 @@
-ninethirty = Venue.create(name: "930 Club", city: "Washington, DC")
-dcnine = Venue.create(name: "DC9", city: "Washington, DC")
-blackcat = Venue.create(name: "Black Cat", city: "Washington, DC")
-
-struts = Concert.create(name: "The Struts with Special Guest Dorothy", datetime: "2016-08-06", ticket_status: "Available", venue: ninethirty)
-holyfuck = Concert.create(name: "Holy Fuck with DOOMSQUAD", datetime: "2016-07-21", ticket_status: "Available", venue: dcnine)
-azealia = Concert.create(name: "Azealia Banks", datetime: "2016-07-19", ticket_status: "Available", venue: blackcat)
+struts = Concert.create(name: "The Struts with Special Guest Dorothy", datetime: "2016-08-06", ticket_status: "Available", venue_name: "9:30 Club", venue_city: "Washington, DC")
+holyfuck = Concert.create(name: "Holy Fuck with DOOMSQUAD", datetime: "2016-07-21", ticket_status: "Available", venue_name: "DC9", venue_city: "Washington, DC")
+azealia = Concert.create(name: "Azealia Banks", datetime: "2016-07-19", ticket_status: "Available", venue_name: "Blackcat", venue_city: "Washington, DC")
 
 Band.create([
   {name: "The Struts", genre: "Rock", photo_url: "http://tws-data.s3.amazonaws.com/wp-content/uploads/2015/09/30114954/the-struts.png", concert: struts},
