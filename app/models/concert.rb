@@ -5,7 +5,7 @@ class Concert < ApplicationRecord
   # validates :external_id, :uniqueness => true
 
   def self.save_data_from_api (location)
-    url = "http://api.bandsintown.com/events/search?location=#{location}&radius=150&format=json&app_id=#{ENV["pusher_app_id"]}"
+    url = "http://api.bandsintown.com/events/search?location=#{location}&radius=15&format=json&app_id=#{ENV["pusher_app_id"]}"
     response = HTTParty.get(url)
     concert_data = JSON.parse(response.body)
     concerts = concert_data.map do |event|
@@ -16,7 +16,7 @@ class Concert < ApplicationRecord
       c.on_sale_datetime = event['on_sale_datetime']
 
       #need help making this an array with names for all artists
-      c.artists = event['artists'][0]['name']
+      c.artists = event['artists']
       c.venue_name = event['venue']['name']
       c.city = event['venue']['city']
 
