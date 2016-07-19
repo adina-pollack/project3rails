@@ -1,44 +1,54 @@
 class ConcertsController < ApplicationController
+  before_action :set_concert, only: [:show, :update, :destroy]
   def index
     @concerts = Concert.all
+    render json: @concerts
   end
   def get_events
     if params[:city]
       @location = Location.new(params[:city])
     else
-      @location = Location.new("New York City")
+      @location = Location.new("New York")
     end
   end
   def show
-    @concert = Concert.find(params[:id])
+    # @concert = Concert.find(params[:id])
+    render json: @concert
   end
-  def new
-    @venue = Venue.find(params[:venue_id])
-    @concert = @venue.concerts.new
-  end
+  # def new
+  #   @concert = Concert.new
+  # end
   def create
-    @venue = Venue.find(params[:venue_id])
-    @concert = Concert.create!(concert_params.merge(venue: @venue))
-    redirect_to @venue
+    # @concert = Concert.create!(concert_params)
+    @concert = Concert.new(concert_params)
+
+    if @concert.save
+      render json: @concert, status: :created, location: @concert
+    else
+      render json: @concert.errors, status: :unprocessable_entity
+    end
   end
-  def edit
-    @concert = Concert.find(params[:id])
-    @venue = Venue.find(params[:venue_id])
-  end
+
+  # def edit
+  #   @concert = Concert.find(params[:id])
+  # end
   def update
-    @venue = Venue.find(params[:venue_id])
-    @concert = Concert.find(params[:id])
-    @concert.update(concert_params.merge(venue: @venue))
-    redirect_to venue_concert_path(@venue, @concert)
+    # @concert = Concert.find(params[:id])
+    # @concert.update(concert_params)
+    if @concert.update(concert_params)
+      render json: @concert
+    else
+      render json: @concert.errors, status: :unprocessable_entity
+    end
   end
   def destroy
-    @venue = Venue.find(params[:venue_id])
-    @concert = @venue.concerts.find(params[:id])
     @concert.destroy
-    redirect_to @venue
   end
   private
+  def set_concert
+    @concert = Concert.find(params[:id])
+  end
   def concert_params
-    params.require(:concert).permit(:name, :datetime, :ticket_status)
+    params.require(:concert).permit(:name, :datetime, :ticket_status, :venue_name, :venue_city)
   end
 end
