@@ -3,6 +3,9 @@ class Concert < ApplicationRecord
 
   # optional, but probably a good idea
   # validates :external_id, :uniqueness => true
+  def as_json(options={})
+      super.as_json(options).merge({artists: JSON.parse(self.artists)})
+  end
 
   def self.save_data_from_api (location)
     url = "http://api.bandsintown.com/events/search?location=#{location}&radius=15&format=json&app_id=#{ENV["pusher_app_id"]}"
@@ -16,7 +19,7 @@ class Concert < ApplicationRecord
       c.on_sale_datetime = event['on_sale_datetime']
 
       #need help making this an array with names for all artists
-      c.artists = event['artists']
+      c.artists = event['artists'].to_json
       c.venue_name = event['venue']['name']
       c.city = event['venue']['city']
 
