@@ -4,10 +4,7 @@ class Concert < ApplicationRecord
   # optional, but probably a good idea
   # validates :external_id, :uniqueness => true
   def as_json(options={})
-    if self.artists
-      super.as_json(options).merge({artists: JSON.parse(self.artists)})
-    else
-    end
+    super(options).merge({artists: JSON.parse(self.artists || '[]')})
   end
 
   def self.save_data_from_api (location)

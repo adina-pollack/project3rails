@@ -20,12 +20,13 @@ class ConcertsController < ApplicationController
   # end
   def create
     # @concert = Concert.create!(concert_params)
-    @concert = Concert.new(concert_params)
+    c = Concert.new(concert_params)
 
-    if @concert.save
-      render json: @concert, status: :created, location: @concert
+    if c.save!
+      render json: c
     else
-      render json: @concert.errors, status: :unprocessable_entity
+      render json: {}
+      #render json: @concert.errors, status: :unprocessable_entity
     end
   end
 
@@ -49,6 +50,6 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
   end
   def concert_params
-    params.require(:concert).permit(:title, :datetime, :venue_name, :venue_city, :venue_address)
+    params.require(:concert).permit(:title, :datetime, :venue_name, :city, :venue_address, :artist)
   end
 end

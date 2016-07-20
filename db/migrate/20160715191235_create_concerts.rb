@@ -6,7 +6,6 @@ class CreateConcerts < ActiveRecord::Migration[5.0]
       t.string :ticket_status
       t.string :on_sale_datetime
       t.string :venue_name
-      t.string :venue_city
       t.string :artists
       t.string :city
       t.string :venue_address

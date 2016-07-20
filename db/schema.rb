@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20160715191235) do
     t.string   "ticket_status"
     t.string   "on_sale_datetime"
     t.string   "venue_name"
-    t.string   "venue_city"
     t.string   "artists"
     t.string   "city"
+    t.string   "venue_address"
     t.integer  "venue_latitude"
     t.integer  "venue_longitude"
     t.datetime "created_at",       null: false
