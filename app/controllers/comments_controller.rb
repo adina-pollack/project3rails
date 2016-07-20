@@ -1,4 +1,4 @@
-class BandsController < ApplicationController
+class CommentsController < ApplicationController
     before_action :set_comment, only: [:show, :update, :destroy]
   def index
     @comments = Comment.all
