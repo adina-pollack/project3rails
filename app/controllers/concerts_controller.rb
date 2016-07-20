@@ -49,6 +49,6 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
   end
   def concert_params
-    params.require(:concert).permit(:name, :datetime, :ticket_status, :venue_name, :venue_city)
+    params.require(:concert).permit(:title, :datetime, :venue_name, :venue_city, :venue_address)
   end
 end
