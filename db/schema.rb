@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20160715191235) do
     t.string   "venue_city"
     t.string   "artists"
     t.string   "city"
+    t.integer  "venue_latitude"
+    t.integer  "venue_longitude"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

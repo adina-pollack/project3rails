@@ -9,6 +9,9 @@ class CreateConcerts < ActiveRecord::Migration[5.0]
       t.string :venue_city
       t.string :artists
       t.string :city
+      t.string :venue_address
+      t.integer :venue_latitude
+      t.integer :venue_longitude
       t.timestamps
     end
   end
