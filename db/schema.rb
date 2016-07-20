@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715191235) do
+ActiveRecord::Schema.define(version: 20160720204126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20160715191235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["concert_id"], name: "index_bands_on_concert_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "content"
+    t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "concerts", force: :cascade do |t|
@@ -38,8 +46,8 @@ ActiveRecord::Schema.define(version: 20160715191235) do
     t.string   "artist3"
     t.string   "time"
     t.string   "venue_address"
-    t.integer  "venue_latitude"
-    t.integer  "venue_longitude"
+    t.decimal  "venue_latitude"
+    t.decimal  "venue_longitude"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
