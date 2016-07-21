@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160720204126) do
     t.string   "venue_address"
     t.decimal  "venue_latitude"
     t.decimal  "venue_longitude"
+    t.boolean  "from_api"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

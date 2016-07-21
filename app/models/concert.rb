@@ -1,5 +1,5 @@
 class Concert < ApplicationRecord
-  has_many :bands
+
 
   # optional, but probably a good idea
   # validates :external_id, :uniqueness => true
@@ -24,7 +24,7 @@ class Concert < ApplicationRecord
       c.artists = event['artists'].to_json
       c.venue_name = event['venue']['name']
       c.city = event['venue']['city']
-      # c.from_api = true
+      c.from_api = true
 
       # set name value however you want to do that
       c.save
