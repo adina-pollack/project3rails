@@ -15,7 +15,6 @@ class CreateConcerts < ActiveRecord::Migration[5.0]
       t.string :venue_address
       t.decimal :venue_latitude
       t.decimal :venue_longitude
-      t.boolean :from_api
       t.timestamps
     end
   end

@@ -15,16 +15,6 @@ ActiveRecord::Schema.define(version: 20160720204126) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bands", force: :cascade do |t|
-    t.string   "name"
-    t.string   "genre"
-    t.string   "photo_url"
-    t.integer  "concert_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["concert_id"], name: "index_bands_on_concert_id", using: :btree
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string   "name"
     t.text     "content"
@@ -48,7 +38,6 @@ ActiveRecord::Schema.define(version: 20160720204126) do
     t.string   "venue_address"
     t.decimal  "venue_latitude"
     t.decimal  "venue_longitude"
-    t.boolean  "from_api"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
