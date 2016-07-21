@@ -1,9 +1,9 @@
-# if c.from_api
-#   Concert.destroy_all
-# else
-# end
+if c.from_api
+  Concert.destroy_all
+else
+end
 
-Concert.destroy_all
+
 cities = ["Austin", "Miami", "Dallas", "Houston", "San Francisco", "Portland", "Milwaukee", "Indianapolis", "Raleigh", "St. Louis", "Atlanta", "Boston", "Minneapolis", "Chicago", "Washington", "Seattle", "New York", "Los Angeles", "London", "Philadelphia"]
 
 
