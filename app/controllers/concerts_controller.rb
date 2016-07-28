@@ -4,6 +4,7 @@ class ConcertsController < ApplicationController
     @concerts = Concert.all
     render json: @concerts
   end
+  # NHO: is this method being used at all?
   def get_events
     if params[:city]
       @location = Location.new(params[:city])
@@ -29,7 +30,7 @@ class ConcertsController < ApplicationController
       #render json: @concert.errors, status: :unprocessable_entity
     end
   end
-
+  # NHO: reminder to remove all unused / commented out code
   # def edit
   #   @concert = Concert.find(params[:id])
   # end

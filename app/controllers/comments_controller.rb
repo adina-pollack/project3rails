@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
-    before_action :set_comment, only: [:show, :update, :destroy]
+  before_action :set_comment, only: [:show, :update, :destroy]
   def index
+    # NHO: do you plan on filtering these comments in the front end?
+    # If Comment was related to something it might be easier to filter these via the back-end
     @comments = Comment.all
     render json: @comments
   end
@@ -16,6 +18,7 @@ class CommentsController < ApplicationController
       render json: @comment.errors, status: :unprocessable_entity
     end
   end
+
   def update
     if @comment.update(comment_params)
       render json: @comment
@@ -23,6 +26,7 @@ class CommentsController < ApplicationController
       render json: @comment.errors, status: :unprocessable_entity
     end
   end
+
   def destroy
     @comment.destroy
   end

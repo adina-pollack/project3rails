@@ -1,7 +1,8 @@
-class Location 
+class Location
   attr_reader :city, :id
 
   def initialize (city)
+    # NHO: not sure if this model is necessary?
     @city = city
     city = city.split(' ').join('%20')
     url = "http://api.bandsintown.com/events/search.json?location=#{city}&page=1&app_id=#{ENV["pusher_app_id"]}"

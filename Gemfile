@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# NHO: General piece of advice is to come up with some system for organizing gems
+# personally I favor alphabetizing between two groups - Rails out of the box gems
+# and any custom gem added
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rack-cors'
