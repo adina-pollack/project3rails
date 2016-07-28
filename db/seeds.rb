@@ -6,5 +6,6 @@ cities = ["Austin", "Miami", "Dallas", "Houston", "San Francisco", "Portland", "
 
 
 cities.each do |city|
-Concert.save_data_from_api(city)
+  # NHO: This is effective for right now, but maybe this api call should happen via the front-end
+  Concert.save_data_from_api(city)
 end

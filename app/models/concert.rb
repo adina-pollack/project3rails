@@ -2,11 +2,12 @@ class Concert < ApplicationRecord
 
 
   # optional, but probably a good idea
+  # NHO: ++ to validations! It is a good idea
   # validates :external_id, :uniqueness => true
   def as_json(options={})
-    super(options).merge({artists: JSON.parse(self.artists || '[]')})
+    super(options).merge({artists: JSON.parse(self.artists || '[]')}) # Another option is to break this up into another model
   end
-
+  # NHO: nice model method and job parsing API data to save only what you need.
   def self.save_data_from_api (location)
     url = "http://api.bandsintown.com/events/search?location=#{location}&radius=1&format=json&app_id=#{ENV["pusher_app_id"]}"
     response = HTTParty.get(url)
@@ -24,7 +25,7 @@ class Concert < ApplicationRecord
       c.artists = event['artists'].to_json
       c.venue_name = event['venue']['name']
       c.city = event['venue']['city']
-    
+
 
       # set name value however you want to do that
       c.save
